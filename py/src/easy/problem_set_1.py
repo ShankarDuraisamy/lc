@@ -1,4 +1,7 @@
 from typing import List
+from typing import Optional
+
+from src.common.list_node import ListNode
 
 
 class ProblemSet1:
@@ -32,6 +35,17 @@ class ProblemSet1:
             nums1[last_pointer] = nums2[num2_pointer]
             last_pointer -= 1
             num2_pointer -= 1
+
+    @staticmethod
+    def delete_duplicate(head: Optional[ListNode]) -> Optional[ListNode]:
+        node = head
+        while node and node.next:
+            if node.val == node.next.val:
+                node.next = node.next.next
+                continue
+            node = node.next
+        return head
+
 
 
 
